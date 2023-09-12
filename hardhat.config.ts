@@ -1,11 +1,14 @@
 import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
+import * as dotenv from "dotenv";
+dotenv.config();
 
+const rpcUrl = process.env.RPC_URL as string;
 const config: HardhatUserConfig = {
   solidity: "0.8.19",
   networks: {
     buildbear: {
-      url: "https://rpc.buildbear.io/coherent-bail-prestor-organa-2c226244",
+      url: rpcUrl,
     },
   },
   defaultNetwork: "buildbear",
